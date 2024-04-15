@@ -47,17 +47,17 @@ It makes use of my other project [tensorrt-cpp-api](https://github.com/cyrusbehr
 
 
 ### Installation
-- `git clone https://github.com/cyrusbehr/YOLOv8-TensorRT-CPP --recursive`
+- `git clone https://github.com/cyrusbehr/YOLOv9-TensorRT-CPP --recursive`
 - **Note:** Be sure to use the `--recursive` flag as this repo makes use of git submodules. 
 
 ### Converting Model from PyTorch to ONNX
-- Navigate to the [official YoloV8 repository](https://github.com/ultralytics/ultralytics) and download your desired version of the model (ex. YOLOv8x).
-  - The code also supports semantic segmentation models out of the box (ex. YOLOv8x-seg) and pose estimation models (ex. yolov8x-pose.onnx).
-- `pip3 install ultralytics`
-- Navigate to the `scripts/` directory and run the following:
-- ```python3 pytorch2onnx.py --pt_path <path to your pt file>```
+- Navigate to the [official YoloV9 repository](https://github.com/WongKinYiu/yolov9) and download your desired version of the model (ex. YOLOv9-C).
+- Clone the [official YoloV9 repository](https://github.com/WongKinYiu/yolov9). 
+- From within the YoloV9 repository, run the following:
+- ```python3 export.py --weights <path to your pt file> --include onnx```
 - After running this command, you should successfully have converted from PyTorch to ONNX.
 - **Note**: If converting the model using a different script, be sure that `end2end` is disabled. This flag will add bbox decoding and nms directly to the model, whereas my implementation does these steps external to the model using good old C++. 
+- Move the export onnx model into the `YOLOv9-TensorRT-CPP/modles/` directory. 
 
 ### Building the Project
 - `mkdir build`
@@ -67,7 +67,6 @@ It makes use of my other project [tensorrt-cpp-api](https://github.com/cyrusbehr
 
 ### Running the Executables
 - *Note*: the first time you run any of the scripts, it may take quite a long time (5 mins+) as TensorRT must generate an optimized TensorRT engine file from the onnx model. This is then saved to disk and loaded on subsequent runs.
-- *Note*: The executables all work out of the box with Ultralytic's pretrained object detection, segmentation, and pose estimation models. 
 - To run the benchmarking script, run: `./benchmark --model /path/to/your/onnx/model.onnx --input /path/to/your/benchmark/image.png`
 - To run inference on an image and save the annotated image to disk run: `./detect_object_image --model /path/to/your/onnx/model.onnx --input /path/to/your/image.jpg`
   - You can use the images in the `images/` directory for testing
@@ -106,10 +105,10 @@ If this project was helpful to you, I would appreicate if you could give it a st
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[stars-shield]: https://img.shields.io/github/stars/cyrusbehr/YOLOv8-TensorRT-CPP.svg?style=flat-square
-[stars-url]: https://github.com/cyrusbehr/YOLOv8-TensorRT-CPP/stargazers
-[issues-shield]: https://img.shields.io/github/issues/cyrusbehr/YOLOv8-TensorRT-CPP.svg?style=flat-square
-[issues-url]: https://github.com/cyrusbehr/YOLOv8-TensorRT-CPP/issues
+[stars-shield]: https://img.shields.io/github/stars/cyrusbehr/YOLOv9-TensorRT-CPP.svg?style=flat-square
+[stars-url]: https://github.com/cyrusbehr/YOLOv9-TensorRT-CPP/stargazers
+[issues-shield]: https://img.shields.io/github/issues/cyrusbehr/YOLOv9-TensorRT-CPP.svg?style=flat-square
+[issues-url]: https://github.com/cyrusbehr/YOLOv9-TensorRT-CPP/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/cyrus-behroozi/
 
