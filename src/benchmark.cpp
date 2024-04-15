@@ -1,7 +1,6 @@
-#include "yolov9.h"
 #include "cmd_line_util.h"
+#include "yolov9.h"
 #include <opencv2/cudaimgproc.hpp>
-
 
 // Benchmarks the specified model
 int main(int argc, char *argv[]) {
@@ -10,8 +9,8 @@ int main(int argc, char *argv[]) {
     std::string inputImage;
 
     // Parse the command line arguments
-	if (!parseArguments(argc, argv, config, onnxModelPath, inputImage)) {
-		return -1;
+    if (!parseArguments(argc, argv, config, onnxModelPath, inputImage)) {
+        return -1;
     }
 
     // Create the YoloV9 engine
