@@ -5,29 +5,29 @@
 
 <!-- PROJECT LOGO -->
 <br />
-  <h3 align="center">YoloV8 TensorRT CPP</h3>
+  <h3 align="center">YoloV9 TensorRT CPP</h3>
   <p align="center">
     <b>
-    A C++ Implementation of YoloV8 using TensorRT
+    A C++ Implementation of YoloV9 using TensorRT
     </b>
     <br/>
-    Supports object detection, semantic segmentation, and body pose estimation.
+    Supports object detection.
 </p>
 <p align="center">
-  <a href="https://github.com/cyrusbehr/YOLOv8-TensorRT-CPP">
-    <img width="70%" src="assets/yolov8.gif" alt="logo">
+  <a href="https://github.com/cyrusbehr/YOLOv9-TensorRT-CPP">
+    <img width="70%" src="assets/yolov9.gif" alt="logo">
   </a>
-  <a href="https://github.com/cyrusbehr/YOLOv8-TensorRT-CPP">
-    <img width="70%" src="assets/yolov8-seg.gif" alt="logo">
+  <a href="https://github.com/cyrusbehr/YOLOv9-TensorRT-CPP">
+    <img width="70%" src="assets/yolov9-seg.gif" alt="logo">
   </a>
-  <a href="https://github.com/cyrusbehr/YOLOv8-TensorRT-CPP">
-    <img width="70%" src="assets/yolov8-pose.gif" alt="logo">
+  <a href="https://github.com/cyrusbehr/YOLOv9-TensorRT-CPP">
+    <img width="70%" src="assets/yolov9-pose.gif" alt="logo">
   </a>
 </p>
 
 
 ### Getting Started
-This project demonstrates how to use the TensorRT C++ API to run GPU inference for YoloV8. 
+This project demonstrates how to use the TensorRT C++ API to run GPU inference for YoloV9. 
 It makes use of my other project [tensorrt-cpp-api](https://github.com/cyrusbehr/tensorrt-cpp-api) to run inference behind the scene, so make sure you are familiar with that project.
 
 ### Prerequisites
