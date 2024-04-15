@@ -14,15 +14,16 @@
     Supports object detection.
 </p>
 <p align="center">
-  <a href="https://github.com/cyrusbehr/YOLOv9-TensorRT-CPP">
-    <img width="70%" src="assets/yolov9.gif" alt="logo">
-  </a>
-  <a href="https://github.com/cyrusbehr/YOLOv9-TensorRT-CPP">
-    <img width="70%" src="assets/yolov9-seg.gif" alt="logo">
-  </a>
-  <a href="https://github.com/cyrusbehr/YOLOv9-TensorRT-CPP">
-    <img width="70%" src="assets/yolov9-pose.gif" alt="logo">
-  </a>
+ 
+
+https://github.com/cyrusbehr/YOLOv9-TensorRT-CPP/assets/17056751/f759d4d0-bc97-4e6b-863b-b3007f697a91
+<p align="center">
+    <b>
+    YOLOv9 (top) vs YOLOv8 (bottom)
+    </b>
+    <br/>
+    Supports object detection.
+</p>
 </p>
 
 
