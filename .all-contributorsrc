@@ -1,0 +1,44 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "z3lx",
+      "name": "z3lx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57017122?v=4",
+      "profile": "https://github.com/z3lx",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ltetrel",
+      "name": "Loic Tetrel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37963074?v=4",
+      "profile": "https://ltetrel.github.io/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "IamShubhamGupto",
+      "name": "Shubham",
+      "avatar_url": "https://avatars.githubusercontent.com/u/32878682?v=4",
+      "profile": "http://iamshubhamgupto.github.io",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "YOLOv8-TensorRT-CPP",
+  "projectOwner": "cyrusbehr"
+}

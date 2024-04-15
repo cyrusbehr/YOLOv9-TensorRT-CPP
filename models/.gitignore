@@ -1,0 +1,4 @@
+*.onnx
+*.trt
+*.pt
+*.ptl
