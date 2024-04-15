@@ -5,7 +5,7 @@
 
 // Benchmarks the specified model
 int main(int argc, char *argv[]) {
-    YoloV8Config config;
+    YoloV9Config config;
     std::string onnxModelPath;
     std::string inputImage;
 
@@ -14,8 +14,8 @@ int main(int argc, char *argv[]) {
 		return -1;
     }
 
-    // Create the YoloV8 engine
-    YoloV8 yoloV8(onnxModelPath, config);
+    // Create the YoloV9 engine
+    YoloV9 yoloV9(onnxModelPath, config);
 
     // Read the input image
     auto img = cv::imread(inputImage);
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
     std::cout << "Warming up the network..." << std::endl;
     size_t numIts = 50;
     for (size_t i = 0; i < numIts; ++i) {
-        const auto objects = yoloV8.detectObjects(gpuImg);
+        const auto objects = yoloV9.detectObjects(gpuImg);
     }
 
     // Draw the bounding boxes on the image
@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
     std::cout << "Warmup done. Running benchmarks (" << numIts << " iterations)..." << std::endl;
     preciseStopwatch stopwatch;
     for (size_t i = 0; i < numIts; ++i) {
-        const auto objects = yoloV8.detectObjects(gpuImg);
+        const auto objects = yoloV9.detectObjects(gpuImg);
     }
 
     auto totalElapsedTimeMs = stopwatch.elapsedTime<float, std::chrono::milliseconds>();

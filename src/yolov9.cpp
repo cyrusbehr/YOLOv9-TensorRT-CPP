@@ -1,7 +1,7 @@
 #include <opencv2/cudaimgproc.hpp>
-#include "yolov8.h"
+#include "yolov9.h"
 
-YoloV8::YoloV8(const std::string& onnxModelPath, const YoloV8Config& config)
+YoloV9::YoloV9(const std::string& onnxModelPath, const YoloV9Config& config)
         : PROBABILITY_THRESHOLD(config.probabilityThreshold)
         , NMS_THRESHOLD(config.nmsThreshold)
         , TOP_K(config.topK)
@@ -40,7 +40,7 @@ YoloV8::YoloV8(const std::string& onnxModelPath, const YoloV8Config& config)
     }
 }
 
-std::vector<std::vector<cv::cuda::GpuMat>> YoloV8::preprocess(const cv::cuda::GpuMat &gpuImg) {
+std::vector<std::vector<cv::cuda::GpuMat>> YoloV9::preprocess(const cv::cuda::GpuMat &gpuImg) {
     // Populate the input vectors
     const auto& inputDims = m_trtEngine->getInputDims();
 
@@ -70,7 +70,7 @@ std::vector<std::vector<cv::cuda::GpuMat>> YoloV8::preprocess(const cv::cuda::Gp
     return inputs;
 }
 
-std::vector<Object> YoloV8::detectObjects(const cv::cuda::GpuMat &inputImageBGR) {
+std::vector<Object> YoloV9::detectObjects(const cv::cuda::GpuMat &inputImageBGR) {
     // Preprocess the input image
 #ifdef ENABLE_BENCHMARKS
     static int numIts = 1;
@@ -132,7 +132,7 @@ std::vector<Object> YoloV8::detectObjects(const cv::cuda::GpuMat &inputImageBGR)
     return ret;
 }
 
-std::vector<Object> YoloV8::detectObjects(const cv::Mat &inputImageBGR) {
+std::vector<Object> YoloV9::detectObjects(const cv::Mat &inputImageBGR) {
     // Upload the image to GPU memory
     cv::cuda::GpuMat gpuImg;
     gpuImg.upload(inputImageBGR);
@@ -141,7 +141,7 @@ std::vector<Object> YoloV8::detectObjects(const cv::Mat &inputImageBGR) {
     return detectObjects(gpuImg);
 }
 
-std::vector<Object> YoloV8::postProcessSegmentation(std::vector<std::vector<float>>& featureVectors) {
+std::vector<Object> YoloV9::postProcessSegmentation(std::vector<std::vector<float>>& featureVectors) {
     const auto& outputDims = m_trtEngine->getOutputDims();
 
     int numChannels = outputDims[outputDims.size() - 1].d[1];
@@ -268,7 +268,7 @@ std::vector<Object> YoloV8::postProcessSegmentation(std::vector<std::vector<floa
     return objs;
 }
 
-std::vector<Object> YoloV8::postprocessPose(std::vector<float> &featureVector) {
+std::vector<Object> YoloV9::postprocessPose(std::vector<float> &featureVector) {
     const auto& outputDims = m_trtEngine->getOutputDims();
     auto numChannels = outputDims[0].d[1];
     auto numAnchors = outputDims[0].d[2];
@@ -349,7 +349,7 @@ std::vector<Object> YoloV8::postprocessPose(std::vector<float> &featureVector) {
 
     return objects;}
 
-std::vector<Object> YoloV8::postprocessDetect(std::vector<float> &featureVector) {
+std::vector<Object> YoloV9::postprocessDetect(std::vector<float> &featureVector) {
     const auto& outputDims = m_trtEngine->getOutputDims();
     auto numChannels = outputDims[0].d[1];
     auto numAnchors = outputDims[0].d[2];
@@ -419,7 +419,7 @@ std::vector<Object> YoloV8::postprocessDetect(std::vector<float> &featureVector)
     return objects;
 }
 
-void YoloV8::drawObjectLabels(cv::Mat& image, const std::vector<Object> &objects, unsigned int scale) {
+void YoloV9::drawObjectLabels(cv::Mat& image, const std::vector<Object> &objects, unsigned int scale) {
     // If segmentation information is present, start with that
     if (!objects.empty() && !objects[0].boxMask.empty()) {
         cv::Mat mask = image.clone();

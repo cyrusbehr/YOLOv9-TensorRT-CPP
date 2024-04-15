@@ -23,7 +23,7 @@ set(TensorRT_DIR /home/cyrus/work/libs/TensorRT-10.0.0.6/)
 # TensorRT is found and linked by the tensorrt-cpp-api
 add_subdirectory(libs/tensorrt-cpp-api)
 
-# Build the YoloV8 library
+# Build the YoloV9 library
 add_library(YoloV9_TRT SHARED src/yolov9.cpp)
 target_link_libraries(YoloV9_TRT PUBLIC tensorrt_cpp_api ${OpenCV_LIBS})
 target_include_directories(YoloV9_TRT PUBLIC libs/tensorrt-cpp-api/src)

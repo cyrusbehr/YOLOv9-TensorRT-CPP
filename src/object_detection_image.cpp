@@ -1,10 +1,10 @@
-#include "yolov8.h"
+#include "yolov9.h"
 #include "cmd_line_util.h"
 
 
 // Runs object detection on an input image then saves the annotated image to disk.
 int main(int argc, char *argv[]) {
-    YoloV8Config config;
+    YoloV9Config config;
     std::string onnxModelPath;
     std::string inputImage;
 
@@ -13,8 +13,8 @@ int main(int argc, char *argv[]) {
 		return -1;
     }
 
-    // Create the YoloV8 engine
-    YoloV8 yoloV8(onnxModelPath, config);
+    // Create the YoloV9 engine
+    YoloV9 yoloV9(onnxModelPath, config);
 
     // Read the input image
     auto img = cv::imread(inputImage);
@@ -24,10 +24,10 @@ int main(int argc, char *argv[]) {
     }
 
     // Run inference
-    const auto objects = yoloV8.detectObjects(img);
+    const auto objects = yoloV9.detectObjects(img);
 
     // Draw the bounding boxes on the image
-    yoloV8.drawObjectLabels(img, objects);
+    yoloV9.drawObjectLabels(img, objects);
 
     std::cout << "Detected " << objects.size() << " objects" << std::endl;
 

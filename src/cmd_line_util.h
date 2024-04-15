@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "yolov8.h"
+#include "yolov9.h"
 
 inline void showHelp(char* argv[]) {
     std::cout << "Usage: " << argv[0] << " [OPTIONS]" << std::endl << std::endl;
@@ -63,7 +63,7 @@ inline bool tryParseFloat(const std::string& s, float& value, const std::string&
     }
 }
 
-inline bool parseArguments(int argc, char* argv[], YoloV8Config& config, std::string& onnxModelPath, std::string& inputImage) {
+inline bool parseArguments(int argc, char* argv[], YoloV9Config& config, std::string& onnxModelPath, std::string& inputImage) {
     if (argc == 1) {
         showHelp(argv);
         return false;
@@ -245,7 +245,7 @@ inline bool parseArguments(int argc, char* argv[], YoloV8Config& config, std::st
     return true;
 }
 
-inline bool parseArgumentsVideo(int argc, char* argv[], YoloV8Config& config, std::string& onnxModelPath, std::string& inputVideo) {
+inline bool parseArgumentsVideo(int argc, char* argv[], YoloV9Config& config, std::string& onnxModelPath, std::string& inputVideo) {
     if (argc == 1) {
         showHelp(argv);
         return false;

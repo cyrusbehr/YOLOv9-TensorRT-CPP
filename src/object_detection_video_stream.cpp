@@ -1,11 +1,11 @@
-#include "yolov8.h"
+#include "yolov9.h"
 #include "cmd_line_util.h"
 #include <opencv2/cudaimgproc.hpp>
 
 
 // Runs object detection on video stream then displays annotated results.
 int main(int argc, char* argv[]) {
-    YoloV8Config config;
+    YoloV9Config config;
     std::string onnxModelPath;
     std::string inputVideo;
 
@@ -14,8 +14,8 @@ int main(int argc, char* argv[]) {
 		return -1;
     }
 
-	// Create the YoloV8 engine
-	YoloV8 yoloV8(onnxModelPath, config);
+	// Create the YoloV9 engine
+	YoloV9 yoloV9(onnxModelPath, config);
 
 	// Initialize the video stream
 	cv::VideoCapture cap;
@@ -49,10 +49,10 @@ int main(int argc, char* argv[]) {
 			throw std::runtime_error("Unable to decode image from video stream.");
 
 		// Run inference
-		const auto objects = yoloV8.detectObjects(img);
+		const auto objects = yoloV9.detectObjects(img);
 
 		// Draw the bounding boxes on the image
-		yoloV8.drawObjectLabels(img, objects);
+		yoloV9.drawObjectLabels(img, objects);
 
 		// Display the results
 		cv::imshow("Object Detection", img);

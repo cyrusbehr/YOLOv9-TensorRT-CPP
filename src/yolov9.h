@@ -21,9 +21,9 @@ struct Object {
     std::vector<float> kps{};
 };
 
-// Config the behavior of the YoloV8 detector.
+// Config the behavior of the YoloV9 detector.
 // Can pass these arguments as command line parameters.
-struct YoloV8Config {
+struct YoloV9Config {
     // The precision to be used for inference
     Precision precision = Precision::FP16;
     // Calibration data directory. Must be specified when using INT8 precision.
@@ -56,10 +56,10 @@ struct YoloV8Config {
     };
 };
 
-class YoloV8 {
+class YoloV9 {
 public:
     // Builds the onnx model into a TensorRT engine, and loads the engine into memory
-    YoloV8(const std::string& onnxModelPath, const YoloV8Config& config);
+    YoloV9(const std::string& onnxModelPath, const YoloV9Config& config);
 
     // Detect the objects in the image
     std::vector<Object> detectObjects(const cv::Mat& inputImageBGR);
@@ -85,7 +85,7 @@ private:
     std::unique_ptr<Engine<float>> m_trtEngine = nullptr;
 
     // Used for image preprocessing
-    // YoloV8 model expects values between [0.f, 1.f] so we use the following params
+    // YoloV9 model expects values between [0.f, 1.f] so we use the following params
     const std::array<float, 3> SUB_VALS {0.f, 0.f, 0.f};
     const std::array<float, 3> DIV_VALS {1.f, 1.f, 1.f};
     const bool NORMALIZE = true;
