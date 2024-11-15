@@ -26,6 +26,11 @@ https://github.com/cyrusbehr/YOLOv9-TensorRT-CPP/assets/17056751/f759d4d0-bc97-4
 </p>
 </p>
 
+## Looking for Maintainers 🚀
+
+This project is actively seeking maintainers to help guide its growth and improvement. If you're passionate about this project and interested in contributing, I’d love to hear from you!
+
+Please feel free to reach out via [LinkedIn](https://www.linkedin.com/in/cyrus-behroozi/) to discuss how you can get involved.
 
 ### Getting Started
 This project demonstrates how to use the TensorRT C++ API to run GPU inference for YoloV9. 
